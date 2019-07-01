@@ -7,6 +7,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -33,8 +34,9 @@ public class Form {
 	    		  System.out.println("Alert was there");
 	    	  }
 	    	  
-	      }catch (NoSuchElementException ex) {
+	      }catch (NoAlertPresentException Ex) {
 	    	  System.out.println("Alert was not there");
+	    
 	      }
 	      
 	      
