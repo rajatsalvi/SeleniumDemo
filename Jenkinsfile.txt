@@ -1,0 +1,23 @@
+pipeline{
+    agent any
+    stages{
+        stage('Clone and clean'){
+            steps{
+                bat "mvn clean"
+            }
+        }
+        stage('Test'){
+            steps{
+                bat "mvn test"
+            }
+        }
+        stage('Sonar test'){
+            steps{
+            withSonarQubeEnv('Sonarqube') { 
+                bat 'sonar-scanner -D"sonar.login=4c3796999059c8cc009316379d6c4a78c2f0985b"' 
+                 } 
+            }  
+        }
+        }
+}
+
